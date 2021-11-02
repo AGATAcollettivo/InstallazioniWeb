@@ -125,7 +125,7 @@ function setup() {
   sample[i].amp(2);
   }
   
-  dist_link = height / 6;
+  dist_link = height / 7;
 } 
 
 function draw() { 
@@ -260,7 +260,7 @@ function draw() {
   
   textAlign(LEFT, CENTER);
   translate(30, height * 0.335);
-  textSize(altezza_testo * 0.3);
+  textSize(altezza_testo * 0.33);
   
   text('ANNI',      mid_larghezza - 200, mid_altezza * 0.1);
   text('SETTIMANE', mid_larghezza - 200, mid_altezza * 0.1 + altezza_testo);
