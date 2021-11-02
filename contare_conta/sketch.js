@@ -35,7 +35,7 @@ let target_x_random = [];
 let target_y_random = [];
 
 let spazio;
-let dens = 10;
+let dens = 9;
 
 let pulsazione = [];
 let fase_pulsazione = [];
@@ -125,7 +125,7 @@ function setup() {
   sample[i].amp(2);
   }
   
-  dist_link = height * 0.1;
+  dist_link = height * 0.1 * 0.3;
 } 
 
 function draw() { 
