@@ -35,7 +35,7 @@ let target_x_random = [];
 let target_y_random = [];
 
 let spazio;
-let dens = 8;
+let dens = 10;
 
 let pulsazione = [];
 let fase_pulsazione = [];
@@ -125,7 +125,7 @@ function setup() {
   sample[i].amp(2);
   }
   
-  dist_link = height / 7;
+  dist_link = height / 6;
 } 
 
 function draw() { 
@@ -260,14 +260,14 @@ function draw() {
   
   textAlign(LEFT, CENTER);
   translate(30, height * 0.335);
-  textSize(altezza_testo * 0.35);
+  textSize(altezza_testo * 0.3);
   
-  text('ANNI',      mid_larghezza - 150, mid_altezza * 0.1);
-  text('SETTIMANE', mid_larghezza - 150, mid_altezza * 0.1 + altezza_testo);
-  text('GIORNI',    mid_larghezza - 150, mid_altezza * 0.1 + 2 * altezza_testo);
-  text('ORE',       mid_larghezza - 150, mid_altezza * 0.1 + 3 * altezza_testo);
-  text('MINUTI',    mid_larghezza - 150, mid_altezza * 0.1 + 4 * altezza_testo);
-  text('SECONDI',   mid_larghezza - 150, mid_altezza * 0.1 + 5 * altezza_testo);
+  text('ANNI',      mid_larghezza - 200, mid_altezza * 0.1);
+  text('SETTIMANE', mid_larghezza - 200, mid_altezza * 0.1 + altezza_testo);
+  text('GIORNI',    mid_larghezza - 200, mid_altezza * 0.1 + 2 * altezza_testo);
+  text('ORE',       mid_larghezza - 200, mid_altezza * 0.1 + 3 * altezza_testo);
+  text('MINUTI',    mid_larghezza - 200, mid_altezza * 0.1 + 4 * altezza_testo);
+  text('SECONDI',   mid_larghezza - 200, mid_altezza * 0.1 + 5 * altezza_testo);
  
   textSize(altezza_testo);
   text(floor(anni),       mid_larghezza, mid_altezza * 0.1);
