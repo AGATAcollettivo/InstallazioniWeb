@@ -54,6 +54,8 @@ let campione = 0;
 
 let costringilo = [0.5, 0.562, 0.633, 0.712, 0.8, 0.9, 1, 1.125, 1.265, 1.423, 1.6, 1.8, 2, 2.125, 2.265, 2.423];
 
+let dist_link;
+
 
 function preload() {
   soundFormats('ogg', 'mp3');
@@ -111,7 +113,7 @@ function setup() {
     target_y_random[i] = target_y[i];
        
     fase_pulsazione[i] = random(-2 * PI, 2 * PI);
-    amp_puls[i] = random(5) + 10;
+    amp_puls[i] = random(5) + 30;
     pulsazione[i] = 10 + amp_puls[i] * abs(sin(fase_pulsazione[i]));
     pulsazione_pre[i] = pulsazione[i];
     
@@ -122,6 +124,8 @@ function setup() {
   for (let i = 0; i < polifonia; i++) {
   sample[i].amp(2);
   }
+  
+  dist_link = height / 7;
 } 
 
 function draw() { 
@@ -208,7 +212,7 @@ function draw() {
        if (i != j) {
           distanza = dist(punti[i].x, punti[i].y, punti[j].x, punti[j].y );
        }
-     if (distanza < 70) {
+     if (distanza < dist_link) {
        
         strokeWeight(1);
         stroke(255, 255, 0, 50);
@@ -256,7 +260,7 @@ function draw() {
   
   textAlign(LEFT, CENTER);
   translate(30, height * 0.335);
-  textSize(altezza_testo * 0.40);
+  textSize(altezza_testo * 0.35);
   
   text('ANNI',      mid_larghezza - 150, mid_altezza * 0.1);
   text('SETTIMANE', mid_larghezza - 150, mid_altezza * 0.1 + altezza_testo);
@@ -298,6 +302,7 @@ function draw() {
     }
   }
   cliccato_pre = cliccato;
+  
 } // fine del draw
 
 function traccia_mouse() {
