@@ -125,7 +125,7 @@ function setup() {
   sample[i].amp(2);
   }
   
-  dist_link = height / 7;
+  dist_link = height * 0.1;
 } 
 
 function draw() { 
