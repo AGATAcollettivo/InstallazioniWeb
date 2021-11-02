@@ -69,7 +69,7 @@ function preload() {
 
 function setup() { 
   
-  frameRate(22);
+  frameRate(20);
   
   cnv = createCanvas(windowWidth, windowHeight);
   
@@ -126,7 +126,7 @@ function setup() {
   sample[i].amp(1);
   }
   
-  dist_link = height * 0.1 * 0.5;
+  dist_link = lung_y * 0.1 * 0.7;
 } 
 
 function draw() { 
