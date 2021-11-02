@@ -35,7 +35,7 @@ let target_x_random = [];
 let target_y_random = [];
 
 let spazio;
-let dens = 6;
+let dens = 8;
 
 let pulsazione = [];
 let fase_pulsazione = [];
@@ -66,7 +66,7 @@ function preload() {
 
 function setup() { 
   
-  frameRate(30);
+  frameRate(20);
   
   cnv = createCanvas(windowWidth, windowHeight);
   
@@ -254,16 +254,16 @@ function draw() {
   text('Il Casino del Principe è chiuso da:', mid_larghezza, 1.5 * altezza_testo);
   text('Ma si continua a brillare', mid_larghezza, height - altezza_testo);
   
-  textAlign(LEFT);
+  textAlign(LEFT, CENTER);
   translate(30, height * 0.335);
   textSize(altezza_testo * 0.50);
   
-  text('ANNI',      mid_larghezza - 120, mid_altezza * 0.1);
-  text('SETTIMANE', mid_larghezza - 120, mid_altezza * 0.1 + altezza_testo);
-  text('GIORNI',    mid_larghezza - 120, mid_altezza * 0.1 + 2 * altezza_testo);
-  text('ORE',       mid_larghezza - 120, mid_altezza * 0.1 + 3 * altezza_testo);
-  text('MINUTI',    mid_larghezza - 120, mid_altezza * 0.1 + 4 * altezza_testo);
-  text('SECONDI',   mid_larghezza - 120, mid_altezza * 0.1 + 5 * altezza_testo);
+  text('ANNI',      mid_larghezza - 150, mid_altezza * 0.1);
+  text('SETTIMANE', mid_larghezza - 150, mid_altezza * 0.1 + altezza_testo);
+  text('GIORNI',    mid_larghezza - 150, mid_altezza * 0.1 + 2 * altezza_testo);
+  text('ORE',       mid_larghezza - 150, mid_altezza * 0.1 + 3 * altezza_testo);
+  text('MINUTI',    mid_larghezza - 150, mid_altezza * 0.1 + 4 * altezza_testo);
+  text('SECONDI',   mid_larghezza - 150, mid_altezza * 0.1 + 5 * altezza_testo);
  
   textSize(altezza_testo);
   text(floor(anni),       mid_larghezza, mid_altezza * 0.1);
