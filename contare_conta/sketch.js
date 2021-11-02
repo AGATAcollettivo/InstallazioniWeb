@@ -24,6 +24,7 @@ let secondi;
 let minuti;
 let ore;
 let settimane;
+let mesi;
 let giorni;
 
 let punti = [];
@@ -125,7 +126,7 @@ function setup() {
   sample[i].amp(1);
   }
   
-  dist_link = height * 0.1 * 0.3;
+  dist_link = height * 0.1 * 0.5;
 } 
 
 function draw() { 
@@ -196,38 +197,37 @@ function draw() {
     noStroke();
     fill(255, 255, 0, 100 * connessioni[i] + 50);
     ellipse(punti[i].x, punti[i].y, pulsazione[i], pulsazione[i]);
-    fase_pulsazione[i] = fase_pulsazione[i] + 0.025;
+    fase_pulsazione[i] = fase_pulsazione[i] + 0.035;
     pulsazione[i] = 10 + amp_puls[i] * abs(sin(fase_pulsazione[i]));
     
   } // fine for lucciole
   
 // calcolo e disegno collegamenti
-  
- 
-  
+   
   for (let i = 0; i < punti.length; i++) {
     let distanza;
    for (let j = 0; j < punti.length; j++) { 
     
-       if (i != j) {
+     if (i != j) {
           distanza = dist(punti[i].x, punti[i].y, punti[j].x, punti[j].y );
-       }
-     if (distanza < dist_link) {
        
-        strokeWeight(1);
-        stroke(255, 255, 0, 50);
-       line(punti[i].x, punti[i].y, punti[j].x, punti[j].y);
+       if (distanza < dist_link) {
        
-       strokeWeight(8);
-       stroke(255, 255, 0, 30);
-      line(punti[i].x, punti[i].y, punti[j].x, punti[j].y);
+          strokeWeight(1);
+          stroke(255, 255, 0, 50);
+          line(punti[i].x, punti[i].y, punti[j].x, punti[j].y);
        
-       connessioni[j] = connessioni[j] + 1;
+          strokeWeight(8);
+          stroke(255, 255, 0, 30);
+          line(punti[i].x, punti[i].y, punti[j].x, punti[j].y);
+       
+          connessioni[i] = connessioni[i] + 1;
        
      }
-     
-    if (connessioni[j] > 0 && distanza >= 40 ) {
-      connessioni[j] = connessioni[j] - 1;
+   } 
+   
+  if (connessioni[i] > 0 && distanza >= 40 ) {
+      connessioni[i] = connessioni[i] - 1;
         
      }
    }
