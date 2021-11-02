@@ -1,4 +1,3 @@
-
 /**
  * a hosted version of moment.js has been added to this
  * project's index.html. grab the relevant <script></script> tag
@@ -54,8 +53,32 @@ let polifonia = 16;
 let campione = 0;
 
 let costringilo = [0.5, 0.562, 0.633, 0.712, 0.8, 0.9, 1, 1.125, 1.265, 1.423, 1.6, 1.8, 2, 2.125, 2.265, 2.423];
+let costringilo_pre;
 
 let dist_link;
+
+let numero_giorni;
+let numero_settimane;
+let numero_mesi;
+let numero_anni;
+
+let punti_giorni = [];
+let punti_settimane = [];
+let punti_mesi = [];
+let punti_anni = [];
+
+let target_x_giorni = [];
+let target_y_giorni = [];
+
+let target_x_settimane = [];
+let target_y_settimane = [];
+
+let target_x_mesi = [];
+let target_y_mesi = [];
+
+let target_x_anni = [];
+let target_y_anni = [];
+
 
 
 function preload() {
@@ -127,6 +150,64 @@ function setup() {
   }
   
   dist_link = lung_y * 0.1 * 0.7;
+  
+  tempo_trascorso = (Date.now() - chiusura.getTime()) * 0.001;   
+  secondi = floor(tempo_trascorso);
+  minuti = floor(secondi / 60);
+  ore = floor(minuti / 60);
+  giorni = floor(ore / 24);
+  settimane = floor (giorni / 7);
+  mesi = floor (settimane / 4);
+  anni = floor (giorni / 365);
+  
+  numero_giorni = giorni;
+  numero_settimane = settimane;
+  numero_mesi = mesi;
+  numero_anni = anni;
+  
+    for (let x = 0; x < numero_giorni; x++) {
+    
+      let punto = createVector (floor(random(width)), floor(random(height)));
+      
+      punti_giorni.push(punto);
+      
+      target_x_giorni[x] = floor(random(width));
+      target_y_giorni[x] = floor(random(height));     
+  }
+  
+    for (let x = 0; x < numero_settimane; x++) {
+    
+      let punto = createVector (floor(random(width)), floor(random(height)));
+      
+      punti_settimane.push(punto);
+      
+      target_x_settimane[x] = floor(random(width));
+      target_y_settimane[x] = floor(random(height));     
+  }
+  
+  
+    for (let x = 0; x < numero_mesi; x++) {
+    
+      let punto = createVector (floor(random(width)), floor(random(height)));
+      
+      punti_mesi.push(punto);
+      
+      target_x_mesi[x] = floor(random(width));
+      target_y_mesi[x] = floor(random(height));     
+  }
+  
+  
+   for (let x = 0; x < numero_anni; x++) {
+    
+      let punto = createVector (floor(random(width)), floor(random(height)));
+      
+      punti_anni.push(punto);
+      
+      target_x_anni[x] = floor(random(width));
+      target_y_anni[x] = floor(random(height));     
+  }
+  
+  
 } 
 
 function draw() { 
@@ -230,18 +311,133 @@ function draw() {
       connessioni[i] = connessioni[i] - 1;
         
      }
+    }   
    }
+
+  //-------------disegno punti grigi----------//
+  
+  noStroke();
+  fill (50);
+  
+  for (let i = 0; i < punti_giorni.length; i++) {
+     
+     rect(punti_giorni[i].x, punti_giorni[i].y, 8, 8);
+     
+    if (punti_giorni[i].x == target_x_giorni[i]) {
+        target_x_giorni[i] = floor(random(width));
+     }
     
+     if (punti_giorni[i].x < target_x_giorni[i]) {
+        punti_giorni[i].x = punti_giorni[i].x + 1;
+     }
+     if (punti_giorni[i].x > target_x_giorni[i]) {
+        punti_giorni[i].x = punti_giorni[i].x - 1;
+     }
     
-  }
+      if (punti_giorni[i].y == target_y_giorni[i]) {
+        target_y_giorni[i] = floor(random(height));
+     }
     
+     if (punti_giorni[i].y < target_y_giorni[i]) {
+        punti_giorni[i].y = punti_giorni[i].y + 1;
+     }
+     if (punti_giorni[i].y > target_y_giorni[i]) {
+        punti_giorni[i].y = punti_giorni[i].y - 1;
+     }  
+  } // fine disegno giorni
+  
+  for (let i = 0; i < punti_settimane.length; i++) {
+     
+     rect(punti_settimane[i].x, punti_settimane[i].y, 28, 28);
+     
+    if (punti_settimane[i].x == target_x_settimane[i]) {
+        target_x_settimane[i] = floor(random(width));
+     }
+    
+     if (punti_settimane[i].x < target_x_settimane[i]) {
+        punti_settimane[i].x = punti_settimane[i].x + 1;
+     }
+     if (punti_settimane[i].x > target_x_settimane[i]) {
+        punti_settimane[i].x = punti_settimane[i].x - 1;
+     }
+    
+      if (punti_settimane[i].y == target_y_settimane[i]) {
+        target_y_settimane[i] = floor(random(height));
+     }
+    
+     if (punti_settimane[i].y < target_y_settimane[i]) {
+        punti_settimane[i].y = punti_settimane[i].y + 1;
+     }
+     if (punti_settimane[i].y > target_y_settimane[i]) {
+        punti_settimane[i].y = punti_settimane[i].y - 1;
+     }  
+  } //fine disegno settimane
+  
+  for (let i = 0; i < punti_mesi.length; i++) {
+     
+    rect(punti_mesi[i].x, punti_mesi[i].y, 58, 58);
+     
+    if (punti_mesi[i].x == target_x_mesi[i]) {
+        target_x_mesi[i] = floor(random(width));
+     }
+    
+     if (punti_mesi[i].x < target_x_mesi[i]) {
+        punti_mesi[i].x = punti_mesi[i].x + 1;
+     }
+     if (punti_mesi[i].x > target_x_mesi[i]) {
+        punti_mesi[i].x = punti_mesi[i].x - 1;
+     }
+    
+      if (punti_mesi[i].y == target_y_mesi[i]) {
+        target_y_mesi[i] = floor(random(height));
+     }
+    
+     if (punti_mesi[i].y < target_y_mesi[i]) {
+        punti_mesi[i].y = punti_mesi[i].y + 1;
+     }
+     if (punti_mesi[i].y > target_y_mesi[i]) {
+        punti_mesi[i].y = punti_mesi[i].y - 1;
+     }  
+  } //fine disegno mesi
+  
+  
+    for (let i = 0; i < punti_anni.length; i++) {
+     
+     rect(punti_anni[i].x, punti_anni[i].y, 100, 100);
+     
+    if (punti_anni[i].x == target_x_anni[i]) {
+        target_x_anni[i] = floor(random(width));
+     }
+    
+     if (punti_anni[i].x < target_x_anni[i]) {
+        punti_anni[i].x = punti_anni[i].x + 1;
+     }
+     if (punti_anni[i].x > target_x_anni[i]) {
+        punti_anni[i].x = punti_anni[i].x - 1;
+     }
+    
+      if (punti_anni[i].y == target_y_anni[i]) {
+        target_y_anni[i] = floor(random(height));
+     }
+    
+     if (punti_anni[i].y < target_y_anni[i]) {
+        punti_anni[i].y = punti_anni[i].y + 1;
+     }
+     if (punti_anni[i].y > target_y_anni[i]) {
+        punti_anni[i].y = punti_anni[i].y - 1;
+     }  
+  } //fine disegno mesi
+  
+  
   tempo_trascorso = (Date.now() - chiusura.getTime()) * 0.001;   
   secondi = tempo_trascorso;
   minuti = secondi / 60;
   ore = minuti / 60;
   giorni = ore / 24;
   settimane = giorni / 7;
+  mesi = settimane / 4;
   anni = giorni / 365;
+  
   strokeWeight(1);
   stroke(255);
 
@@ -265,19 +461,22 @@ function draw() {
   textSize(altezza_testo * 0.33);
   
   text('ANNI',      mid_larghezza - 200, mid_altezza * 0.1);
-  text('SETTIMANE', mid_larghezza - 200, mid_altezza * 0.1 + altezza_testo);
-  text('GIORNI',    mid_larghezza - 200, mid_altezza * 0.1 + 2 * altezza_testo);
-  text('ORE',       mid_larghezza - 200, mid_altezza * 0.1 + 3 * altezza_testo);
-  text('MINUTI',    mid_larghezza - 200, mid_altezza * 0.1 + 4 * altezza_testo);
-  text('SECONDI',   mid_larghezza - 200, mid_altezza * 0.1 + 5 * altezza_testo);
+  text('MESI',      mid_larghezza - 200, mid_altezza * 0.1 + altezza_testo);
+  text('SETTIMANE', mid_larghezza - 200, mid_altezza * 0.1 + 2 * altezza_testo);
+  text('GIORNI',    mid_larghezza - 200, mid_altezza * 0.1 + 3 * altezza_testo);
+  text('ORE',       mid_larghezza - 200, mid_altezza * 0.1 + 4 * altezza_testo);
+  text('MINUTI',    mid_larghezza - 200, mid_altezza * 0.1 + 5 * altezza_testo);
+  text('SECONDI',   mid_larghezza - 200, mid_altezza * 0.1 + 6 * altezza_testo);
  
   textSize(altezza_testo);
+  
   text(floor(anni),       mid_larghezza, mid_altezza * 0.1);
-  text(floor(settimane),  mid_larghezza, mid_altezza * 0.1 + altezza_testo);
-  text(floor(giorni),     mid_larghezza, mid_altezza * 0.1 + 2 * altezza_testo);
-  text(floor(ore) ,       mid_larghezza, mid_altezza * 0.1 + 3 * altezza_testo);
-  text(floor(minuti) ,    mid_larghezza, mid_altezza * 0.1 + 4 * altezza_testo);
-  text(floor(secondi) ,   mid_larghezza, mid_altezza * 0.1 + 5 * altezza_testo);
+  text(floor(mesi),       mid_larghezza, mid_altezza * 0.1 + altezza_testo);
+  text(floor(settimane),  mid_larghezza, mid_altezza * 0.1 + 2 * altezza_testo);
+  text(floor(giorni),     mid_larghezza, mid_altezza * 0.1 + 3 * altezza_testo);
+  text(floor(ore) ,       mid_larghezza, mid_altezza * 0.1 + 4 * altezza_testo);
+  text(floor(minuti) ,    mid_larghezza, mid_altezza * 0.1 + 5 * altezza_testo);
+  text(floor(secondi) ,   mid_larghezza, mid_altezza * 0.1 + 6 * altezza_testo);
   
   
 // --------sintesi audio--------//
@@ -285,10 +484,10 @@ function draw() {
      bordo.loop();
   }
 
-
+ let indice_freq;
   
   if (cliccato == 1) {
-  let indice_freq = floor(map(pos_mouse_Y, 0, height, 15, 0));
+  indice_freq = floor(map(pos_mouse_Y, 0, height, 15, 0));
   let freq = costringilo[indice_freq];
      
     if (campione > polifonia - 2) {
@@ -296,12 +495,15 @@ function draw() {
   }
     sample[campione].rate(freq);
  
-  if (cliccato == 1 && cliccato_pre == 0) {
+ // if (cliccato == 1 && cliccato_pre == 0) {
+  if (costringilo[indice_freq] != costringilo_pre) {
     campione = campione + 1;
     if (sample[campione].isPlaying() == false) {
       sample[campione].play();
      }    
     }
+      costringilo_pre = costringilo[indice_freq];
+ // print (costringilo_pre);
   }
   cliccato_pre = cliccato;
   
