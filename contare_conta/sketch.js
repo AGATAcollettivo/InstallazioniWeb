@@ -208,7 +208,7 @@ function draw() {
        if (i != j) {
           distanza = dist(punti[i].x, punti[i].y, punti[j].x, punti[j].y );
        }
-     if (distanza < 50) {
+     if (distanza < 70) {
        
         strokeWeight(1);
         stroke(255, 255, 0, 50);
@@ -256,7 +256,7 @@ function draw() {
   
   textAlign(LEFT, CENTER);
   translate(30, height * 0.335);
-  textSize(altezza_testo * 0.50);
+  textSize(altezza_testo * 0.40);
   
   text('ANNI',      mid_larghezza - 150, mid_altezza * 0.1);
   text('SETTIMANE', mid_larghezza - 150, mid_altezza * 0.1 + altezza_testo);
