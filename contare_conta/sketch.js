@@ -257,6 +257,8 @@ function draw() {
   textAlign(CENTER);
   text('Il Casino del Principe è chiuso da:', mid_larghezza, 1.5 * altezza_testo);
   text('Ma si continua a brillare', mid_larghezza, height - altezza_testo);
+  textSize(altezza_testo * 0.35);
+  text('Clicca per interagire', mid_larghezza, 1.5 * altezza_testo + altezza_testo * 0.75);
   
   textAlign(LEFT, CENTER);
   translate(30, height * 0.335);
