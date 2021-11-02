@@ -68,7 +68,7 @@ function preload() {
 
 function setup() { 
   
-  frameRate(20);
+  frameRate(22);
   
   cnv = createCanvas(windowWidth, windowHeight);
   
@@ -122,7 +122,7 @@ function setup() {
   
   bordo.amp(1.5);
   for (let i = 0; i < polifonia; i++) {
-  sample[i].amp(2);
+  sample[i].amp(1);
   }
   
   dist_link = height * 0.1 * 0.3;
